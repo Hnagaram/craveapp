@@ -1,0 +1,38 @@
+# Dependencies
+node_modules/
+*/node_modules/
+
+# Production builds
+dist/
+build/
+*.tgz
+
+# Environment files
+.env
+.env.local
+.env.production
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Database
+*.sqlite
+*.db
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+.idea/
+
+# Mobile specific
+mobile/android/app/build/
+mobile/ios/build/
+mobile/ios/Pods/
+
+# Docker
+docker-compose.override.yml
