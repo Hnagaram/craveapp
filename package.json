@@ -1,0 +1,22 @@
+{
+  "name": "crave-app",
+  "version": "1.0.0",
+  "description": "Local food and drink discovery app",
+  "scripts": {
+    "dev": "concurrently \"npm run dev:backend\" \"npm run dev:mobile\"",
+    "dev:backend": "concurrently \"npm run dev:auth\" \"npm run dev:posts\" \"npm run dev:business\" \"npm run dev:users\" \"npm run dev:gateway\"",
+    "dev:mobile": "cd mobile && npm run start",
+    "dev:auth": "cd backend/auth-service && npm run dev",
+    "dev:posts": "cd backend/post-service && npm run dev",
+    "dev:business": "cd backend/business-service && npm run dev",
+    "dev:users": "cd backend/user-service && npm run dev",
+    "dev:gateway": "cd backend/api-gateway && npm run dev",
+    "setup": "npm run install:all && npm run db:migrate",
+    "install:all": "npm ci && npm run install:backend && npm run install:mobile",
+    "install:backend": "concurrently \"npm --prefix backend/auth-service ci\" \"npm --prefix backend/post-service ci\" \"npm --prefix backend/business-service ci\" \"npm --prefix backend/user-service ci\" \"npm --prefix backend/api-gateway ci\"",
+    "install:mobile": "cd mobile && npm ci"
+  },
+  "devDependencies": {
+    "concurrently": "^7.6.0"
+  }
+}
